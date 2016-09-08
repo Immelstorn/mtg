@@ -1,0 +1,36 @@
+﻿@model Mtg.Web.Models.AuthModels.LoginViewModel
+@{
+    ViewBag.Title = "Log in";
+}
+
+<h2>@ViewBag.Title.</h2>
+<div class="ui segment">
+    @using (Html.BeginForm("Login", "Auth", new { ViewBag.ReturnUrl }, FormMethod.Post, new { role = "form", @class = "ui form" }))
+    {
+        @Html.AntiForgeryToken()
+        <div class="field">
+            @Html.LabelFor(m => m.Username, new { })
+            @Html.TextBoxFor(m => m.Username, new { placeholder = "Username" })
+            @Html.ValidationMessageFor(m => m.Username, "", new { })
+        </div>
+        <div class="field">
+            @Html.LabelFor(m => m.Password, new { })
+            @Html.PasswordFor(m => m.Password, new { placeholder = "********" })
+            @Html.ValidationMessageFor(m => m.Password, "", new { })
+        </div>
+        <div class="field">
+            <div class="ui checkbox">
+                @Html.CheckBoxFor(m => m.RememberMe)
+                @Html.LabelFor(m => m.RememberMe)
+            </div>
+        </div>
+        <button class="ui button" type="submit">Log in</button>
+        <hr />
+        @Html.ActionLink("Register as a new user", "Register")
+    }
+</div>
+@*    <div class="col-md-4">*@
+@*        <section id="socialLoginForm">*@
+@*            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })*@
+@*        </section>*@
+@*    </div>*@

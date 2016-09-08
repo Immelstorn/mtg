@@ -1,0 +1,25 @@
+Features:
+* Reveal card from grave/exile/hand/top of the deck
+* Look on top and put in game
+* Save/load cards in game with counters, tokens and state(tap/untap)
+
+			HARD TEST OF MOVING TO BF!!!
+
+			save cards  state(tap/untap)
+
+			Counters табличка
+			Id
+			type
+			cardlink_id
+
+
+			save/load
+* Morph
+* Implement sync
+* Chat
+* Log
+* Coin/dice
+* merge  handleCardDrop with handleCardOutOfDrop - I do not need second one
+
+Bugs:
+* Fix hand layout for much cards

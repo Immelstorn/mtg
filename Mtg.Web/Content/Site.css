@@ -1,0 +1,142 @@
+﻿body, html { height: 100%; }
+
+#content { height: 100%; }
+
+#mainGrid {
+    height: 100%;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+}
+
+#stats, #viewButtons {
+    display: table;
+    margin-bottom: 0px;
+    margin-left: 0px;
+    margin-right: 0px;
+    margin-top: 0px;
+    width: 100%;
+}
+
+#bfRow { height: 78% }
+
+#cardsRow { height: 22% }
+
+#enemyBattlefield, #myBattlefield {
+    margin-bottom: 0;
+    margin-top: 0;
+}
+
+.centerAlligned { text-align: center; }
+
+#plusBtn i, #minusBtn i { margin-right: 0px; }
+
+#plusBtn, #minusBtn { cursor: pointer; }
+
+#myHpColumn {
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+#enemyHpColumn {
+    padding-left: 0.5rem;
+    padding-right: 0px;
+}
+
+#enemyCardsColumn {
+    padding-left: 0px;
+    padding-right: 0.5rem;
+}
+
+.ui.grid > .row {
+    padding-bottom: 0.5rem;
+    padding-top: 0.5rem;
+}
+
+.ui.segment {
+    margin-bottom: 0.5rem;
+    margin-top: 0.5rem;
+}
+
+.ui-progressbar { position: relative; }
+
+.progress-label {
+    font-weight: bold;
+    left: 50%;
+    position: absolute;
+    text-shadow: 1px 1px 0 #fff;
+    top: 4px;
+}
+
+.custom-state-active { background-color: #eee !important; }
+
+#cardInfo .description {
+    height: 450px;
+    overflow-y: scroll;
+    width: 100%;
+}
+
+.roundCornens { border-radius: 5px; }
+
+#logChatContainter { height: 100vh; }
+
+@media screen and (-webkit-min-device-pixel-ratio: 0) {
+    #log { height: 30% !important; }
+
+    #chat { height: 30% !important; }
+}
+
+@-moz-document url-prefix() {
+    #log { height: 49% !important; }
+
+    #chat { height: 49% !important; }
+}
+
+.counter {
+    -moz-border-radius: 50px;
+    -webkit-border-radius: 50px;
+    align-items: center;
+    border-radius: 50px;
+    cursor: default;
+    display: flex;
+    font-size: 80%;
+    justify-content: center;
+}
+
+.counter.plus1 {
+    background: white;
+    border: 1px double black;
+    color: black;
+}
+
+.counter.minus1 {
+    background: black;
+    border: 1px double white;
+    color: white;
+}
+
+.counter.fade {
+    background: grey;
+    border: 1px double white;
+    color: white;
+}
+
+.counter.time {
+    background: blue;
+    border: 1px double white;
+    color: white;
+}
+
+.counter.level {
+    background: burlywood;
+    border: 1px double black;
+    color: white;
+}
+
+.counter.loyality {
+    background: brown;
+    border: 1px double black;
+    color: white;
+    font-size: 70%;
+}

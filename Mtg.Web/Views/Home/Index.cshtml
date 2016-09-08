@@ -1,0 +1,160 @@
+﻿@model List<Mtg.Models.DTO.GameDto>
+
+<script>
+    var createGame = function() {
+        $.ajax({
+            url: "/Play/CreateGame",
+            method: "POST"
+        }).done(function (result) {
+            if (result.Failed) {
+                showError(result.Error);
+            } else {
+                var html = '<tr data-gameid="' + result.Data.Result.Id + '">' +
+                    '<td>' + moment(result.Data.Result.Created).format("DD/MM/YYYY HH:mm:ss") + '</td>' +
+                    '<td>' + result.Data.Result.Opponent + '</td>' +
+                    '<td class="firstPlayerReady">' + (result.Data.Result.FirstPlayerReady ? "Yes" : "No") + '</td>' +
+                    '<td class="secondPlayerReady">' + (result.Data.Result.SecondPlayerReady ? "Yes" : "No") + '</td>' +
+                    '<td><div class="ui icon buttons">' +
+                        '<button class="ui button startGame"><i class="align play icon"></i></button>' +
+                        '<button class="ui button inviteToGame"><i class="align add user icon"></i></button>' +
+                        '<button class="ui button deleteGame"><i class="align remove icon"></i></button>' +
+                    '</div></td></tr>';
+                $('#gamesTable tbody').append(html);
+                refreshEvents();
+            }
+        });
+    }
+
+    var startGame = function () {
+        $(this).parents('td').siblings('.firstPlayerReady').text('Yes');
+        var id = $(this).parents('tr').attr('data-gameid');
+        window.open("/Play/Start/" + id, '_blank');
+    }
+
+    var deleteGame = function (tr) {
+        var id = tr.attr('data-gameid');
+        $.ajax({
+            url: "/Play/Delete/" + id,
+            method:"POST"
+        }).done(function (result) {
+            if (result.Failed) {
+                showError(result.Error);
+            } else {
+                tr.remove();
+            }
+        });
+    }
+
+    var inviteToGame = function () {
+        var id = $(this).parents('tr').attr('data-gameid');
+        var link = window.location.protocol + "//" + window.location.host + "/" + "Play/Invite/" + id;
+        $('#inviteModal .content input').val(link);
+        $('#inviteModal').modal('show');
+    }
+
+    var refreshEvents = function() {
+        $('.startGame').on('click', startGame);
+        $('.inviteToGame').on('click', inviteToGame);
+
+        $('.deleteGame').on('click', function () {
+            var tr = $(this).parents('tr');
+            $('#deleteGameModal').modal({
+                closable: false,
+                onApprove: function () {
+                    deleteGame(tr);
+                }
+            }).modal('show');
+        });
+
+    }
+
+    $(function () {
+        $('#createGameBtn').on('click', createGame);
+        refreshEvents();
+    });
+
+    var showError = function (error) {
+        $('#errorModal .content').text(error);
+        $('#errorModal').modal('show');
+    }
+</script>
+
+
+
+<h1 class="ui center aligned header">My games</h1>
+<div class="ui text container">
+    <div class="ui segment">
+        <table class="ui celled center aligned table" id="gamesTable">
+            <thead>
+                <tr>
+                    <th>Created</th>
+                    <th>Opponent</th>
+                    <th>P1 ready</th>
+                    <th>P2 ready</th>
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var game in Model)
+                {
+                    <tr data-gameid="@game.Id">
+                        <td>@game.Created.ToString("dd/MM/yyyy HH:mm:ss")</td>
+                        <td>@game.Opponent</td>
+                        <td class="firstPlayerReady">@(game.FirstPlayerReady ? "Yes" : "No")</td>
+                        <td class="secondPlayerReady">@(game.SecondPlayerReady ? "Yes" : "No")</td>
+                        <td>
+                            <div class="ui icon buttons">
+                                <button class="ui button startGame"><i class="align play icon"></i></button>
+                                <button class="ui button inviteToGame"><i class="align add user icon"></i></button>
+                                <button class="ui button deleteGame"><i class="align remove icon"></i></button>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+            <tfoot>
+                <tr>
+                    <th colspan="5" style="text-align: left">
+                        <button class="ui button" type="button" id="createGameBtn">Create new game</button>
+                    </th>
+                </tr>
+            </tfoot>
+        </table>
+    </div>
+</div>
+
+
+
+
+<div class="ui small modal" id="errorModal">
+    <div class="header">An error occured</div>
+    <div class="content">
+    </div>
+    <div class="actions">
+        <div class="ui ok button">OK</div>
+    </div>
+</div>
+
+<div class="ui small modal" id="inviteModal">
+    <div class="header">Invite to game</div>
+    <div class="content">
+        <div>Copy this link and send it to your friend:<br /><br /></div>
+        <div class="ui fluid input">
+            <input type="text" readonly="readonly">
+        </div>
+    </div>
+    <div class="actions">
+        <div class="ui ok button">OK</div>
+    </div>
+</div>
+
+<div class="ui modal" id="deleteGameModal">
+    <div class="header">Delete game</div>
+    <div class="content">
+        <p>Are you sure you want to delete this game?</p>
+    </div>
+    <div class="actions">
+        <div class="ui approve button">Yes</div>
+        <div class="ui cancel button">No</div>
+    </div>
+</div>

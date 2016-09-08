@@ -1,0 +1,45 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mtg.Api", "Mtg.Api\Mtg.Api.csproj", "{479FB409-AC48-4DB2-ABBA-4B0EE991F546}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mtg.Web", "Mtg.Web\Mtg.Web.csproj", "{23D4F778-58AF-494A-97C9-668F9A8C072B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mtg.Models", "Mtg.Models\Mtg.Models.csproj", "{42F40897-5F73-4775-86EF-6A801355A8C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mtg.Database", "Mtg.Database\Mtg.Database.csproj", "{70F30F54-A598-4471-968E-70C17F3E49C1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{439D18DA-8832-4820-BE65-54E95766C750}"
+	ProjectSection(SolutionItems) = preProject
+		ToDo.txt = ToDo.txt
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{479FB409-AC48-4DB2-ABBA-4B0EE991F546}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{479FB409-AC48-4DB2-ABBA-4B0EE991F546}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{479FB409-AC48-4DB2-ABBA-4B0EE991F546}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{479FB409-AC48-4DB2-ABBA-4B0EE991F546}.Release|Any CPU.Build.0 = Release|Any CPU
+		{23D4F778-58AF-494A-97C9-668F9A8C072B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{23D4F778-58AF-494A-97C9-668F9A8C072B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{23D4F778-58AF-494A-97C9-668F9A8C072B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{23D4F778-58AF-494A-97C9-668F9A8C072B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{42F40897-5F73-4775-86EF-6A801355A8C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{42F40897-5F73-4775-86EF-6A801355A8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{42F40897-5F73-4775-86EF-6A801355A8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{42F40897-5F73-4775-86EF-6A801355A8C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70F30F54-A598-4471-968E-70C17F3E49C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70F30F54-A598-4471-968E-70C17F3E49C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70F30F54-A598-4471-968E-70C17F3E49C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70F30F54-A598-4471-968E-70C17F3E49C1}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

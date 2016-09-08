@@ -1,0 +1,187 @@
+﻿@model Guid
+
+@section scripts
+{
+    <script src="~/Scripts/MyScripts/functions.js"></script>
+    <script src="~/Scripts/MyScripts/contextMenus.js"></script>
+    <script src="~/Scripts/MyScripts/events.js"></script>
+    <script src="~/Scripts/MyScripts/initializers.js"></script>
+    <script src="~/Scripts/MyScripts/playsScript.js"></script>
+}
+
+@Html.Hidden("gameID", Model)
+@Html.Hidden("cardHeight")
+
+<div class="ui grid" id="mainGrid">
+    <div class="stretched row" id="bfRow">
+        <div class="twelve wide column" id="battleFields">
+            <div class="ui segment" id="enemyBattlefield">
+            </div>
+            <div class="ui segment" id="myBattlefield">
+            </div>
+        </div>
+        <div class="four wide column">
+            <div class="ui grid" id="stats">
+                <div class="row">
+                    <div class="two wide column">
+                        <div class="ui label" id="minusBtn">
+                            <i class="minus icon"></i>
+                        </div>
+                    </div>
+                    <div class="ten wide column" id="myHpColumn">
+                        <div class="centerAlligned" id="myHp">
+                            <div id="progressbar"><div class="progress-label">20</div></div>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui label" id="plusBtn">
+                            <i class="plus icon"></i>
+                        </div>
+                    </div>
+                    <div class="two wide column">
+                        <div class="ui inline loader" id="ajaxLoader"></div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="eight wide column" id="enemyCardsColumn">
+                        <div class="ui segment centerAlligned" id="enemyCards">
+                            <span class="oponentName">Opponent</span>'s cards:
+                            <div class="ui label">7</div>
+                        </div>
+                    </div>
+                    <div class="eight wide column" id="enemyHpColumn">
+                        <div class="ui segment centerAlligned" id="enemyHp">
+                            <span class="oponentName">Opponent</span>'s life: <div class="ui label">20</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="logChatContainter">
+                <div class="ui segment" id="log">
+                    log
+                </div>
+                <div class="ui segment" id="chat">
+                    chat
+                </div>
+            </div>
+            <div class="ui grid" id="viewButtons">
+                <div class="row">
+                    <div class="eight wide centerAlligned column" id="viewGraveColumn">
+                        <div class="ui button" id="viewGraveBtn">View graveyard</div>
+                    </div>
+                    <div class="eight wide centerAlligned column" id="viewExileColumn">
+                        <div class="ui button" id="viewExile">View exile</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="stretched row" id="cardsRow">
+        <div class="two wide column">
+            <div class="ui center aligned basic segment" id="deck">
+                <div class="ui small image">
+                    <img src="/Content/Images/deck.png" class="roundCornens" />
+                </div>
+            </div>
+        </div>
+        <div class=" ten wide column">
+            <div class="ui segment" id="hand">
+            </div>
+        </div>
+        <div class="two wide column">
+            <div class="ui center aligned basic segment" id="grave">
+                <div class="ui small image">
+                    <img src="/Content/Images/grave.jpg" class="roundCornens" />
+                </div>
+            </div>
+        </div>
+        <div class="two wide column">
+            <div class="ui center aligned basic segment" id="exile">
+                <div class="ui small image">
+                    <img src="/Content/Images/exile.jpg" class="roundCornens" />
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div class="ui large modal" id="viewCardsModal">
+    <div class="header"></div>
+    <div class="content">
+        <div class="ui small images">
+        </div>
+    </div>
+    <div class="actions">
+        <div style="display: none" id="changeOrderBtn" class="ui button">Change order</div>
+        <div class="ui ok button">OK</div>
+    </div>
+</div>
+
+
+<div class="ui large modal" id="cardInfo">
+    <div class="header"></div>
+    <div class="image content">
+        <div class="ui medium image">
+            <img src="">
+        </div>
+        <div class="description"></div>
+    </div>
+    <div class="actions">
+        <div class="ui ok button">OK</div>
+    </div>
+</div>
+
+<div class="ui small modal" id="errorModal">
+    <div class="header">An error occured</div>
+    <div class="content">
+    </div>
+    <div class="actions">
+        <div class="ui ok button">OK</div>
+    </div>
+</div>
+
+<div class="ui small modal" id="addToken">
+    <div class="header">Add Token</div>
+    <div class="content">
+        <form class="ui form">
+            <div class="field">
+                <label>Name</label>
+                <input placeholder="Saproling token" type="text" id="addTokenName">
+            </div>
+            <div class="field">
+                <label>Type</label>
+                <input placeholder="Saproling" type="text" id="addTokenType">
+            </div>
+            <div class="field">
+                <label>Color</label>
+                <select multiple="" class="ui dropdown" id="addTokenColor">
+                    <option value="">Colorless</option>
+                    <option value="white">White</option>
+                    <option value="blue">Blue</option>
+                    <option value="green">Green</option>
+                    <option value="red">Red</option>
+                    <option value="black">Black</option>
+                </select>
+            </div>
+            <div class="field">
+                <label>Text</label>
+                <input placeholder="This creature does nothing" type="text" id="addTokenText">
+            </div>
+            
+            <label>Power</label>
+            <div class="two wide field">
+                <input placeholder="1" type="text" id="addTokenPower">
+            </div>
+            <label>Toughness</label>
+            <div class="two wide field">
+                <input placeholder="1" type="text" id="addTokenToughness">
+            </div>
+            <div class="ui error message">
+            </div>
+        </form>
+    </div>
+    <div class="actions">
+        <div class="ui ok button">OK</div>
+    </div>
+</div>

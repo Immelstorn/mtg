@@ -1,0 +1,213 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{70F30F54-A598-4471-968E-70C17F3E49C1}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Mtg.Database</RootNamespace>
+    <AssemblyName>Mtg.Database</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.Core">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.Core.2.2.1\lib\net45\Microsoft.AspNet.Identity.Core.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.AspNet.Identity.EntityFramework">
+      <HintPath>..\packages\Microsoft.AspNet.Identity.EntityFramework.2.2.1\lib\net45\Microsoft.AspNet.Identity.EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Migrations\201512091241202_ChangeGame.cs" />
+    <Compile Include="Migrations\201512091241202_ChangeGame.Designer.cs">
+      <DependentUpon>201512091241202_ChangeGame.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512110943373_AddCascadeDelete.cs" />
+    <Compile Include="Migrations\201512110943373_AddCascadeDelete.Designer.cs">
+      <DependentUpon>201512110943373_AddCascadeDelete.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512111105287_RemoveFinishedField.cs" />
+    <Compile Include="Migrations\201512111105287_RemoveFinishedField.Designer.cs">
+      <DependentUpon>201512111105287_RemoveFinishedField.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512111343322_AddHands.cs" />
+    <Compile Include="Migrations\201512111343322_AddHands.Designer.cs">
+      <DependentUpon>201512111343322_AddHands.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512121147007_PlayersReady.cs" />
+    <Compile Include="Migrations\201512121147007_PlayersReady.Designer.cs">
+      <DependentUpon>201512121147007_PlayersReady.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512171450502_RemovePlayersToGames_AddFirstAndSecondPlayers.cs" />
+    <Compile Include="Migrations\201512171450502_RemovePlayersToGames_AddFirstAndSecondPlayers.Designer.cs">
+      <DependentUpon>201512171450502_RemovePlayersToGames_AddFirstAndSecondPlayers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601121350415_replaceCardIdWithCardLinkId.cs" />
+    <Compile Include="Migrations\201601121350415_replaceCardIdWithCardLinkId.Designer.cs">
+      <DependentUpon>201601121350415_replaceCardIdWithCardLinkId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601131401177_SaveTokensToDb.cs" />
+    <Compile Include="Migrations\201601131401177_SaveTokensToDb.Designer.cs">
+      <DependentUpon>201601131401177_SaveTokensToDb.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201601191456560_AddBattlefeildCards_Table.cs" />
+    <Compile Include="Migrations\201601191456560_AddBattlefeildCards_Table.Designer.cs">
+      <DependentUpon>201601191456560_AddBattlefeildCards_Table.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Models\BattlefieldCard.cs" />
+    <Compile Include="Models\Game.cs" />
+    <Compile Include="Models\HandCard.cs" />
+    <Compile Include="Player.cs" />
+    <Compile Include="EFCommandInterceptor.cs" />
+    <Compile Include="Migrations\201512020928480_Init.cs" />
+    <Compile Include="Migrations\201512020928480_Init.Designer.cs">
+      <DependentUpon>201512020928480_Init.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512030955155_AddGamesTable.cs" />
+    <Compile Include="Migrations\201512030955155_AddGamesTable.Designer.cs">
+      <DependentUpon>201512030955155_AddGamesTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512031019240_AddSessionId.cs" />
+    <Compile Include="Migrations\201512031019240_AddSessionId.Designer.cs">
+      <DependentUpon>201512031019240_AddSessionId.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512031308552_AddCreatedDate.cs" />
+    <Compile Include="Migrations\201512031308552_AddCreatedDate.Designer.cs">
+      <DependentUpon>201512031308552_AddCreatedDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512031326067_AddBottomTable.cs" />
+    <Compile Include="Migrations\201512031326067_AddBottomTable.Designer.cs">
+      <DependentUpon>201512031326067_AddBottomTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512041423097_AddGameInfo.cs" />
+    <Compile Include="Migrations\201512041423097_AddGameInfo.Designer.cs">
+      <DependentUpon>201512041423097_AddGameInfo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512071328569_AddMyCards.cs" />
+    <Compile Include="Migrations\201512071328569_AddMyCards.Designer.cs">
+      <DependentUpon>201512071328569_AddMyCards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512071431412_AddPlayers.cs" />
+    <Compile Include="Migrations\201512071431412_AddPlayers.Designer.cs">
+      <DependentUpon>201512071431412_AddPlayers.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201512090848209_AddIdentity.cs" />
+    <Compile Include="Migrations\201512090848209_AddIdentity.Designer.cs">
+      <DependentUpon>201512090848209_AddIdentity.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="MtgDbContext.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Mtg.Models\Mtg.Models.csproj">
+      <Project>{42f40897-5f73-4775-86ef-6a801355a8c1}</Project>
+      <Name>Mtg.Models</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config">
+      <SubType>Designer</SubType>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201512020928480_Init.resx">
+      <DependentUpon>201512020928480_Init.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512030955155_AddGamesTable.resx">
+      <DependentUpon>201512030955155_AddGamesTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512031019240_AddSessionId.resx">
+      <DependentUpon>201512031019240_AddSessionId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512031308552_AddCreatedDate.resx">
+      <DependentUpon>201512031308552_AddCreatedDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512031326067_AddBottomTable.resx">
+      <DependentUpon>201512031326067_AddBottomTable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512041423097_AddGameInfo.resx">
+      <DependentUpon>201512041423097_AddGameInfo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512071328569_AddMyCards.resx">
+      <DependentUpon>201512071328569_AddMyCards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512071431412_AddPlayers.resx">
+      <DependentUpon>201512071431412_AddPlayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512090848209_AddIdentity.resx">
+      <DependentUpon>201512090848209_AddIdentity.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512091241202_ChangeGame.resx">
+      <DependentUpon>201512091241202_ChangeGame.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512110943373_AddCascadeDelete.resx">
+      <DependentUpon>201512110943373_AddCascadeDelete.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512111105287_RemoveFinishedField.resx">
+      <DependentUpon>201512111105287_RemoveFinishedField.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512111343322_AddHands.resx">
+      <DependentUpon>201512111343322_AddHands.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512121147007_PlayersReady.resx">
+      <DependentUpon>201512121147007_PlayersReady.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201512171450502_RemovePlayersToGames_AddFirstAndSecondPlayers.resx">
+      <DependentUpon>201512171450502_RemovePlayersToGames_AddFirstAndSecondPlayers.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601121350415_replaceCardIdWithCardLinkId.resx">
+      <DependentUpon>201601121350415_replaceCardIdWithCardLinkId.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601131401177_SaveTokensToDb.resx">
+      <DependentUpon>201601131401177_SaveTokensToDb.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201601191456560_AddBattlefeildCards_Table.resx">
+      <DependentUpon>201601191456560_AddBattlefeildCards_Table.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

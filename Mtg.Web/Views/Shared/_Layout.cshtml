@@ -1,0 +1,27 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Magic: The Gathering</title>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+    <link href="~/Content/Semantic/semantic.css" rel="stylesheet" />
+    <link href="~/Content/jQuery.contextMenu/jquery.contextMenu.css" rel="stylesheet" />
+    <link href="~/Content/Site.css" rel="stylesheet" />
+    
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+    <script src="~/Content/Semantic/semantic.js"></script>
+    <script src="~/Scripts/jQueryRotate.js"></script>
+    <script src="~/Scripts/jquery.ui.position.js"></script>
+    <script src="~/Scripts/jquery.contextMenu.js"></script>
+    <script src="~/Scripts/moment.js"></script>
+</head>
+<body>
+    <div id="content">
+        @RenderBody()
+    </div>
+    @RenderSection("scripts", required: false)
+</body>
+</html>
